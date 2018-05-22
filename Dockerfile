@@ -1,20 +1,23 @@
-#FROM golang AS build-env
-#RUN mkdir -p /app
-#WORKDIR /app
-#ADD . /app
+#Vulnerabilties
+#FROM golang:onbuild
+#FROM golang
+#FROM golang:alpine 
+#RUN mkdir -p /hello
+#WORKDIR /hello
+#ADD . /hello
 #RUN go build ./hello.go
+#CMD ["./hello"]
 
-# final stage
-#FROM alpine
-#WORKDIR /app
-#COPY --from=build-env /app /app  
-#RUN cd /app
-#CMD ./hello
 
-#FROM golang:alpine
 FROM golang:alpine
-RUN mkdir -p /hello
-WORKDIR /hello
-ADD . /hello
-RUN go build ./hello.go
-CMD ["./hello"]
+RUN addgroup -S lusers && adduser -h /home/luser1 -S -G lusers luser1
+#FROM golang
+#RUN groupadd -r lusers && useradd  -m -r -g lusers luser1  #from golang
+USER luser1
+RUN mkdir -p /home/luser1/hello
+RUN chown -R luser1:lusers /home/luser1/hello
+# CMD ["cd /home/luser1/hello"]
+WORKDIR /home/luser1/hello
+ADD . /home/luser1/hello
+RUN go build /home/luser1/hello/hello.go
+CMD ["/home/luser1/hello/hello"]

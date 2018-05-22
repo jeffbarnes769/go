@@ -24,4 +24,4 @@ Hello:v2 passes our scan but at 378MB is still larger than necessary
 
 We look at reducing image size using multi-stage builds in Hello2 [https://github.com/jeffbarnes769/hello2]
 
-there are a numerous resources for securing containers, such as Understanding and Hardening Linux Containers[https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers/]
+There are a numerous resources for securing containers, such as Understanding and Hardening Linux Containers[https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers/]

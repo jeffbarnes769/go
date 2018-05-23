@@ -10,7 +10,7 @@ Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
 
 We then build various images by modifying the Dockerfile
 
-Hello:v0 has fewer vulnerabilities (but still too many) and is now nearly 800MB.  As well our CSB policy is too run containers as non-superuser
+Hello:v0 has fewer vulnerabilities (but still too many) and is now nearly 800MB.  As well our CSB policy is to not run containers as root
 
 <img src="img/hello0.jpg" width="125">
 
@@ -24,4 +24,4 @@ Hello:v2 passes our scan but at 378MB is still larger than necessary
 
 We look at reducing image size using multi-stage builds in Hello2 [https://github.com/jeffbarnes769/hello2]
 
-There are a numerous resources for securing containers, such as Understanding and Hardening Linux Containers[https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers/]
+There are a numerous resources for securing containers, such as the CIS Benchmark [https://www.cisecurity.org/benchmark/docker/], Understanding and Hardening Linux Containers[https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers] and others

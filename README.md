@@ -22,7 +22,7 @@ Hello:v2 passes our scan but at 378MB is still larger than necessary
 
 <img src="img/hello2.jpg" width="500">
 
-<img src="img/repo.jpg" width="300">
+<img src="img/repo.jpg" width="200">
 
 # Multi-Stage Docker Builds
 
@@ -32,6 +32,6 @@ $ docker build -t hello:v2 .
 
 Output from the AquaSec scanner-cli
 
-<img src="img/hello3.jpg" width="600">
+<img src="img/hello3.jpg" width="500">
 
 Resources for securing containers, such as the CIS Benchmark <https://www.cisecurity.org/benchmark/docker/>, Understanding and Hardening Linux Containers <https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers> and others

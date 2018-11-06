@@ -2,12 +2,11 @@
 
 The Go blog <https://blog.golang.org/docker> and 'Hello World' <https://golang.org/doc/install> are great introductions to Docker and Go.
 
-Though 'FROM golang:onbuild’ make building images simple, Docker newbies (like me) then wonder about image size and security.  We use AquaSec scanner-cli in a POC to run some tests, realizing there are opensource and other options.
+Though 'FROM golang:onbuild’ make building images simple, Docker newbies (like me) then wonder about image size and security.  We can upload to an AquaSec host or use the AquaSec scanner-cli to scan the image for vulnerabilities
 
-Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices:
+Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces http://htmlpreview.github.io/?https://github.com/jeffbarnes769/hello/blob/master/hello4.html
+
 $ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user <userneame> --password <password> --host https://<tenant>-saas.aquasec.com --register --local --registry remote hello:v4 --html >> hello4.html
-
-
 
 Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
 

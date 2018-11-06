@@ -23,11 +23,7 @@ Hello:v2 passes our scan but at 378MB is still larger than necessary
 <img src="img/hello2.jpg" width="125">
 
 $ docker images
-REPOSITORY TAG 	SIZE
-hello      v2  	378MB
-hello      v1  	796MB
-hello      v0   796MB
-
+<img src="img/repo.jpg" width="125">
 
 # Multi-Stage Docker Builds
 

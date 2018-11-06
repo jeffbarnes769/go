@@ -10,19 +10,19 @@ Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices
 
 Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
 
-<img src="img/onbuild.jpg" width="425">
+<img src="img/onbuild.jpg" width="800">
 
 We then build various images by modifying the Dockerfile and running docker build
 
 Hello:v0 has fewer vulnerabilities (but still too many) and is now nearly 800MB.  As well our CSB policy is to not run containers as root
 
-<img src="img/hello0.jpg" width="425">
+<img src="img/hello0.jpg" width="800">
 
 Hello:v2 passes our scan but at 378MB is still larger than necessary
 
-<img src="img/hello2.jpg" width="425">
+<img src="img/hello2.jpg" width="800">
 
-<img src="img/repo.jpg" width="325">
+<img src="img/repo.jpg" width="400">
 
 # Multi-Stage Docker Builds
 
@@ -32,6 +32,6 @@ $ docker build -t hello:v2 .
 
 Output from the AquaSec scanner-cli
 
-<img src="img/hello3.jpg" width="425">
+<img src="img/hello3.jpg" width="800">
 
 Resources for securing containers, such as the CIS Benchmark <https://www.cisecurity.org/benchmark/docker/>, Understanding and Hardening Linux Containers <https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers> and others

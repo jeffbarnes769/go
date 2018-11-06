@@ -14,11 +14,16 @@ Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
 
 We then build various images by modifying the Dockerfile and running docker build
 
+$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v0
+
 Hello:v0 has fewer vulnerabilities (but still too many) and is now nearly 800MB.  As well our CSB policy is to not run containers as root
+$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v0
 
 <img src="img/hello0.jpg" width="600">
 
 Hello:v2 passes our scan but at 378MB is still larger than necessary
+
+$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v2
 
 <img src="img/hello2.jpg" width="500">
 
@@ -31,6 +36,8 @@ Modify the Dockerfile for multi-stage docker build to reduce image size and vuln
 $ docker build -t hello:v2 .
 
 Output from the AquaSec scanner-cli
+
+$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v3
 
 <img src="img/hello3.jpg" width="500">
 

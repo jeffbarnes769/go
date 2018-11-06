@@ -1,6 +1,6 @@
 # Docker Images
 
-The Go blog [https://blog.golang.org/docker] and 'Hello World' [https://golang.org/doc/install] are great introductions to Docker and Go.
+The Go blog <https://blog.golang.org/docker> and 'Hello World' <https://golang.org/doc/install> are great introductions to Docker and Go.
 
 Though 'FROM golang:onbuild’ make building images simple, Docker newbies (like me) then wonder about image size and security.  We use AquaSec scanner-cli in a POC to run some tests, realizing there are opensource and other options.
 

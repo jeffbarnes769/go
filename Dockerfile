@@ -22,8 +22,7 @@ ADD . /home/luser1/hello
 RUN go build /home/luser1/hello/hello.go
 CMD ["/home/luser1/hello/hello"]
 
-#
-# multi-stage build
+# multi-stage docker build via the Dockerfile reduces image size and vulnerabilities,
 #FROM golang:alpine AS build-env
 #RUN groupadd -r lusers && useradd -m -r -g lusers luser1
 #RUN addgroup -S lusers && adduser -h /home/luser1 -S -G lusers luser1 

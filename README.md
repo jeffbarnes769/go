@@ -2,7 +2,7 @@
 
 The Go blog <https://blog.golang.org/docker> and 'Hello World' <https://golang.org/doc/install> are great introductions to Docker and Go.
 
-FROM golang:onbuild’ make building images simple, though image size and security becomes a concern. 
+FROM 'golang:onbuild’ make building images simple, though image size and security becomes a concern. 
 
 $ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v4 --html >> hello4.html
 

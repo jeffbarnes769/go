@@ -20,7 +20,7 @@ Hello:v0 has fewer vulnerabilities (but still too many) and is now nearly 800MB.
 
 Hello:v2 passes our scan but at 378MB is still larger than necessary
 
-<img src="img/hello2.jpg" width="600">
+<img src="img/hello2.jpg" width="500">
 
 <img src="img/repo.jpg" width="300">
 

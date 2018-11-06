@@ -34,6 +34,6 @@ $ docker build -t hello:v2 .
 
 Output from the AquaSec scanner-cli
 
-<img src="img/hello3.jpg" width="125">
+<img src="img/hello3.jpg" width="225">
 
 Resources for securing containers, such as the CIS Benchmark <https://www.cisecurity.org/benchmark/docker/>, Understanding and Hardening Linux Containers <https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers> and others

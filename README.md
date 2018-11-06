@@ -12,7 +12,7 @@ Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
 
 <img src="img/onbuild.jpg" width="125">
 
-We then build various images by modifying the Dockerfile
+We then build various images by modifying the Dockerfile and running docker build
 
 Hello:v0 has fewer vulnerabilities (but still too many) and is now nearly 800MB.  As well our CSB policy is to not run containers as root
 
@@ -22,9 +22,18 @@ Hello:v2 passes our scan but at 378MB is still larger than necessary
 
 <img src="img/hello2.jpg" width="125">
 
+$ docker images
+REPOSITORY TAG 	SIZE
+hello      v2  	378MB
+hello      v1  	796MB
+hello      v0   796MB
+
+
 # Multi-Stage Docker Builds
 
-Building a multi-stage docker image via the Dockerfile reduces image size and vulnerabilities, with no change to the application code.
+Modify the Dockerfile for multi-stage docker build to reduce image size and vulnerabilities, with no change to the application code.
+
+$ docker build -t hello:v2 .
 
 Output from the AquaSec scanner-cli
 

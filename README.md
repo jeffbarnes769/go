@@ -4,6 +4,11 @@ The Go blog <https://blog.golang.org/docker> and 'Hello World' <https://golang.o
 
 Though 'FROM golang:onbuild’ make building images simple, Docker newbies (like me) then wonder about image size and security.  We use AquaSec scanner-cli in a POC to run some tests, realizing there are opensource and other options.
 
+Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices:
+$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user <userneame> --password <password> --host https://<tenant>-saas.aquasec.com --register --local --registry remote hello:v4 --html >> hello4.html
+
+
+
 Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
 
 <img src="img/onbuild.jpg" width="125">
@@ -22,6 +27,6 @@ Hello:v2 passes our scan but at 378MB is still larger than necessary
 
 <img src="img/hello2.jpg" width="125">
 
-We look at reducing image size using multi-stage builds in Hello2 [https://github.com/jeffbarnes769/hello2]
+We look at reducing image size using multi-stage builds in Hello2 <https://github.com/jeffbarnes769/hello2>
 
-There are a numerous resources for securing containers, such as the CIS Benchmark [https://www.cisecurity.org/benchmark/docker/], Understanding and Hardening Linux Containers[https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers] and others
+There are a numerous resources for securing containers, such as the CIS Benchmark <https://www.cisecurity.org/benchmark/docker/>, Understanding and Hardening Linux Containers <https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers> and others

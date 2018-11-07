@@ -6,7 +6,7 @@ FROM **golang:onbuild** make building images simple, though image size and secur
 
 $ *docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v4 --html >> hello4.html*
 
-(Can also be called from Jenkins or CI/CD)
+(Can also be called from Jenkins or other CI/CD)
 
 Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces http://htmlpreview.github.io/?https://github.com/jeffbarnes769/hello/blob/master/hello4.html
 

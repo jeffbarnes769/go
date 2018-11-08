@@ -51,11 +51,11 @@ $ docker load -i aquasec-scanner-cli-2.5.3.tar
 
 Add to Jenkins config: 
 
-<img src="img/aqua3.jpg" width="400">
+<img src="img/aqua3.jpg" width="600">
 
 Run during image build:
 
-<img src="img/aqua2.jpg" width="400">
+<img src="img/aqua2.jpg" width="600">
 
 
 Resources for securing containers, such as the CIS Benchmark <https://www.cisecurity.org/benchmark/docker/>, Understanding and Hardening Linux Containers <https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers> and others

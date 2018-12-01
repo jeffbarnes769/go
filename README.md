@@ -9,7 +9,7 @@ $ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/
 ```
 (Can also be called from Jenkins or other CI/CD)
 
-Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces http://htmlpreview.github.io/?https://github.com/jeffbarnes769/hello/blob/master/hello4.html
+Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces https://jeffbarnes769.github.io/files/hello4.html
 
 Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
 

@@ -6,9 +6,9 @@ FROM **golang:onbuild** make building images simple, but produces large images c
 
 This example uses hosted AquaSec in an Azure tenant and scanner-cli both from the command line and Jenkins.  Image scanning is now included in many CSP image repositories and opensource, such as https://github.com/aquasecurity/microscanner.
 
-Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces https://jeffbarnes769.github.io/files/hello4.html
+Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces https://jeffbarnes769.github.io/files/hello0.html
 ```
-$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v4 --html >> hello4.html
+$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v0 --html >> hello0.html
 ```
 Simple ‘hello world’ built using onbuild is over 700MB, with vulnerabilities:
 ```

@@ -2,17 +2,18 @@
 
 The Go blog <https://blog.golang.org/docker> and 'Hello World' <https://golang.org/doc/install> are great introductions to Docker and Go.
 
-FROM **golang:onbuild** make building images simple, though image size and security is a concern.  This example uses the AquaSec product, though image scanning is also available via opensource https://github.com/aquasecurity/microscanner and other options.
+FROM **golang:onbuild** make building images simple, but produces large images containing vulnerabilities.  Vulnerability scanning, policy checking through container security brokers and multi-stage docker builds, help address image challenges.
 
+This example uses hosted AquaSec in an Azure tenant and scanner-cli both from the command line and Jenkins.  Image scanning is now included in many CSP image repositories and opensource, such as https://github.com/aquasecurity/microscanner.
+
+Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces https://jeffbarnes769.github.io/files/hello4.html
 ```
 $ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v4 --html >> hello4.html
 ```
-(Can also be called from Jenkins or other CI/CD)
-
-Running scanner-cli against an AquaSec SaaS tenant, containing corporate polices, produces https://jeffbarnes769.github.io/files/hello4.html
-
-Our onbuild ‘hello world’ image is over 700MB, with vulnerabilities:
-
+Simple ‘hello world’ built using onbuild is over 700MB, with vulnerabilities:
+```
+$ docker build -t hello:v0 .
+```
 <img src="img/onbuild.jpg" width="600">
 
 We then build various images by modifying the Dockerfile and running docker build
@@ -35,7 +36,7 @@ $ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/
 
 # Multi-Stage Docker Builds
 
-Modify the Dockerfile for multi-stage docker build to reduce image size and vulnerabilities, with no change to the application code.
+Modify the Dockerfile for multi-stage docker build to reduce image size and vulnerabilities, with no change to 'hello world'.
 ```
 $ docker build -t hello:v2 .
 ```
@@ -43,11 +44,10 @@ Output from the AquaSec scanner-cli
 ```
 $ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/scanner-cli:3.0.1 scan --user username --password password --host https://tenantx-saas.aquasec.com --register --local --registry remote hello:v2
 ```
-
 <img src="img/hello3.jpg" width="400">
 
 # Running from Jenkins
-The AquaSec scanner-cli can also be run from Jenkins.  Retrieve and docker load scanner-cli:
+The AquaSec scanner-cli can also be run from Jenkins using the AquaSec plugin.  Retrieve and docker load scanner-cli:
 ```
 $ docker load -i aquasec-scanner-cli-2.5.3.tar
 ```
@@ -58,6 +58,5 @@ Add to Jenkins config:
 Run during image build:
 
 <img src="img/aqua2.jpg" width="600">
-
 
 Resources for securing containers, such as the CIS Benchmark <https://www.cisecurity.org/benchmark/docker/>, Understanding and Hardening Linux Containers <https://www.nccgroup.trust/us/our-research/understanding-and-hardening-linux-containers> and others
